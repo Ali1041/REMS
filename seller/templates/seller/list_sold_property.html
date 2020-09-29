@@ -1,0 +1,32 @@
+{% extends 'seller/seller_extension.html' %}
+{% block body %}
+    {% if sold_list %}
+    <div style="width: 80%" class="p-2 mt-5">
+        <h3 class="bg-white p-3 border-bottom" style="color: black;width: 80%;margin: auto">
+            Properties found: {{ sold_list.count }}
+        </h3>
+    <div style="width: 80%;margin:auto;background-color: ghostwhite; " class="pr-5 pl-5 pb-5 pt-3">
+
+    {% for i in sold_list %}
+        <div class=" bg-white mt-3 row m-0" style="color: black">
+            <div class="col-sm-6 p-0"><img src="{{ i.approval.get_photo_url }}" id="img-size" alt=""></div>
+            <div class="col-sm-6">
+                <h3 class="mb-5 mt-3">Pkr:{{ i.approval.price }}</h3>
+                <h6>{{ i.approval.address }}</h6>
+                <h4>{{ i.approval.city }}</h4>
+                <h5 style="display: inline-block">{{ i.approval.type.upper }}-{{ i.approval.purpose }}</h5>
+                <i class="fas fa-ruler-combined ml-5"><span> {{ i.approval.size }} {{ i.approval.unit }}</span></i>
+                <h5 ><a style="color:dodgerblue;" href="{% url 'seller:detail' i.approval.pk %}">{{ i.approval.title }}</a></h5>
+                 <p>{{ i.approval.description|truncatewords:50 }}</p>
+                </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+    {% else %}
+        <div class="container mt-5" style="width:50%">
+            <h1>No properties {{ dynamic }} yet!!</h1>
+
+        </div>
+    {% endif %}
+{% endblock %}

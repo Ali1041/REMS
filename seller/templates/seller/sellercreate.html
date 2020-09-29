@@ -1,0 +1,12 @@
+{% extends 'seller/seller_extension.html' %}
+{% load  bootstrap4 %}
+{% block body %}
+    <div class="container mt-5 font-weight-bold" style="width: 40%">
+        <form method="POST">
+            <legend class="text-center"><h2>Add your property</h2></legend>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-success" value="Add">
+        </form>
+    </div>
+{% endblock %}

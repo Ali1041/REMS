@@ -1,0 +1,53 @@
+
+#seller-home{
+    background:black url(../../../media/css_styles/irina-iriser-Vn7LOc5PE-E-unsplash.jpg) no-repeat center/cover;
+    /*height: fit-content;*/
+    min-height: 120vh;
+    max-height: fit-content;
+    color: white;
+    padding-bottom: 20px;
+}
+#buyer-home{
+    background:black url(../../../media/css_styles/portfolio.jpg) no-repeat center/cover;
+    /*height: fit-content;*/
+    min-height: 120vh;
+    max-height: fit-content;
+    color: white;
+    padding-bottom: 20px;
+}
+#transp{
+    height: inherit;
+    background-color: transparent;
+    opacity: 1;
+
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+        color: white;
+    text-decoration: none;
+}
+#img-size{
+    height: 300px;
+    width: 300px;
+}
+#detail-bg{
+    color: black;
+    background: url(../../../media/css_styles/izuddin-helmi-adnan-1e71PSox7m8-unsplash.jpg) no-repeat center/cover fixed;
+    min-height: 120vh;
+    max-height: fit-content;
+}
+#detail-transparent{
+    min-height: 120vh;
+    max-height: initial;
+    background-color: rgba(220,220,220,0.7);
+}
+#detail-img{
+    height: 600px;
+    width: 720px;
+}
+li,.text-muted{
+    color: white!important;
+}

@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+{% load bootstrap4 %}
+{% block content %}
+    <div style="width: 40%;color: white" class="container mx-auto font-weight-bold mb-5">
+        <form action="" method="POST">
+            <legend class="p-2 text-center" ><h2 style="font-size: 50px;color: white">Create account </h2></legend>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="SignUp" class="btn btn-success">
+    </form>
+    </div>
+
+{% endblock %}

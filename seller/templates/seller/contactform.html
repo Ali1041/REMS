@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_jquery %}
+{% bootstrap_javascript %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+</head>
+<body>
+    <form action="" method="POST" class="container mt-5 p-5 font-weight-bold border rounded"  style="width: 40%;margin: auto">
+        {% csrf_token %}
+        <legend class="text-center"><h2>Contact form</h2></legend>
+        {% bootstrap_form form %}
+        <input type="submit" value="Send" class="btn btn-success" style="width: 100%">
+
+        <div class="mt-3 p-3 row m-0">
+            <h4 class="col-sm-6 "><a style="color: black" href="{% url 'seller:buyer_home' %}">Buyer Home</a></h4>
+            <h4 class="col-sm-6 text-right"><a style="color: black" href="{% url 'seller:buyer_home' %}">Seller Home</a></h4>
+        </div>
+    </form>
+
+</body>
+</html>
+
+
