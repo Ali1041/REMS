@@ -1,4 +1,5 @@
 {% extends 'seller/detail_extensio.html' %}
+{% load humanize %}
 {% block detail_block %}
     <h3 class="p-2 border-bottom mx-auto" style="width: 50%;"><a href="{% url 'seller:buyer_home' %}">Back</a></h3>
     <div class="container" style="width: fit-content">
@@ -9,9 +10,13 @@
                 <h3 class="m-0">PKR: {{ detail.price }}</h3>
             </div>
             <div class="col-sm-7">
-                <i class="fas fa-bath m-0" style="font-size: x-large"><span class="ml-1 mr-3" style="font-size: x-large">{{ detail.bathroom }}</span></i>
-                <i class="fas fa-bed" style="font-size: x-large"><span class="ml-1 mr-3" style="font-size: x-large">{{ detail.bedrooms }}</span></i>
-                <i class="fas fa-ruler-combined" style="font-size: x-large"><span class="ml-1" style="font-size: x-large">{{ detail.size }} {{ detail.unit }}</span></i>
+                <img src="../../../media/css_styles/bath-solid.svg" id="footer-icon1"  alt="">
+                <span class=" ml-2 mr-3" style="font-size: x-large">{{ detail.bathroom }}</span>
+                <img src="../../../media/css_styles/bed-solid.svg" id="footer-icon2" alt="">
+                <span class=" ml-2 mr-3" style="font-size: x-large">{{ detail.bedrooms }}</span>
+                <img src="../../../media/css_styles/ruler-combined-solid.svg" id="footer-icon1"   alt="">
+                <span class="m-0 ml-1" style="font-size: x-large">{{ detail.size }} {{ detail.unit }}</span>
+
             </div>
         </div>
         <h3 class="text-center bg-white p-2 mt-2">Overview</h3>
@@ -20,13 +25,13 @@
                 <h5>Type: {{ detail.type }}</h5>
                 <h5 class="mt-4 mb-4">Pupose: {{ detail.purpose }}</h5>
                 <h5>Area: {{ detail.size }} {{ detail.unit }}</h5>
-                <h5>Price: {{ detail.price }}</h5>
+                <h5 class="mt-4">Price: {{ detail.price }}</h5>
             </div>
             <div class="col-sm-6">
                 <h5>Bathrooms: {{ detail.bathroom }}</h5>
                  <h5 class="mt-4 mb-4">Bedrooms: {{ detail.bedrooms }}</h5>
-
-                <h5>Location: {{ detail.address }}</h5>
+                <h5>Uploaded: {{ detail.timestamp|naturaltime }}</h5>
+                <h5 class="mt-4">Location: {{ detail.address }}</h5>
 
                 <h5></h5>
             </div>

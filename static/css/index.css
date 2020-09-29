@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: white;
+}
+#home-page a{
+    color: white!important;
+}
+#bg-home{
+    background: url(../../media/css_styles/c3.jpg) no-repeat center center/cover;
+    height: 120vh;
+    z-index: 1;
+    opacity: 0.9;
+}
+/*#trans{*/
+/*    background-color: black;*/
+/*    opacity: .4;*/
+/*    height: inherit;*/
+/*    z-index: 1;*/
+/*}*/
+#home-page{
+    color: white;
+    position: relative;
+    top: 15%;
+}
+li{
+    color: white;
+}
+small,.text-muted{
+    color: white!important;
+}
+#footer-icon{
+    height: 50px;
+}

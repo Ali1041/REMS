@@ -1,4 +1,5 @@
 {% extends 'seller/seller_extension.html' %}
+{% load humanize %}
 {% block body %}
     {% if sold_list %}
     <div style="width: 80%" class="p-2 mt-5">
@@ -18,6 +19,12 @@
                 <i class="fas fa-ruler-combined ml-5"><span> {{ i.approval.size }} {{ i.approval.unit }}</span></i>
                 <h5 ><a style="color:dodgerblue;" href="{% url 'seller:detail' i.approval.pk %}">{{ i.approval.title }}</a></h5>
                  <p>{{ i.approval.description|truncatewords:50 }}</p>
+                {% if i.approval.timestamp|timesince == '0 minutes' %}
+                    <p>print this</p>
+                {% else %}
+                    <p>Uploaded:{{ i.approval.timestamp|naturaltime }}</p>
+
+                {% endif %}
                 </div>
         </div>
     {% endfor %}
