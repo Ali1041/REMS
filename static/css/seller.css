@@ -1,24 +1,24 @@
 
 #seller-home{
-    background:black url(../../media/css_styles/irina-iriser-Vn7LOc5PE-E-unsplash.jpg) no-repeat center/cover;
+    background:black url(../../media/css_styles/alex-shutin-XsC0GHXi-8k-unsplash.7fff1a3f38cc64355e05.jpg) no-repeat center/cover;
     /*height: fit-content;*/
     min-height: 120vh;
     max-height: fit-content;
     color: white;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 #buyer-home{
-    background:black url(../../media/css_styles/portfolio.jpg) no-repeat center/cover;
+    background:black url(../../media/css_styles/09561e11143119b.8df4d62574cde9f0a9fc.jpg) no-repeat center/cover;
     /*height: fit-content;*/
     min-height: 120vh;
     max-height: fit-content;
     color: white;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
-#transp{
-    height: inherit;
-    background-color: transparent;
-    opacity: 1;
+#transparent{
+    background-color: rgba(0,0,0,0.5);
+    min-height: 122vh;
+    max-height: fit-content;
 
 }
 a{
@@ -61,4 +61,101 @@ li,.text-muted{
 #footer-icon2{
     height: 25px;
     width: 29px;
+}
+#side-menu{
+    /*position:sticky;*/
+    position: fixed;
+
+    top: 0;
+    width: 100%;
+    /*height: 200vh!important;*/
+    z-index: 2;
+    /*transform: translateX(-100%);*/
+    transition: all .7s ease-in-out;
+}
+.fade-out{
+    transform: translateX(-100%);
+
+}
+.fade-in{
+    transform: translateX(0%);
+
+}
+
+@media (max-width: 1000px) {
+        #h1{
+            font-size: 60px!important;
+            width: 25% !important;
+            margin-bottom: 20px!important;
+        }
+    h6{
+        padding: 0  !important;
+    }
+    #setting-margin{
+        width: fit-content!important;
+    }
+    #sell-set{
+        width: fit-content;
+        font-size: 40px;
+    }
+    h6 a{
+        font-size: 37px;
+        padding: 10px;
+         }
+    p a{
+        font-size: 35px;
+    }
+    #switch{
+        width: 100%!important;
+        text-align: right!important;
+    }
+    .w_display{
+        display: none;
+    }
+    .get-display{
+        display: none;
+    }
+    #img-size{
+        width: 100%;
+        height: 430px;
+    }
+    #actual-property h3{
+        font-size: 50px;
+    }
+    #actual-property h6,h4,h5{
+        font-size: 38px!important;
+    }
+    #width{
+        width: 100%;
+    }
+    #width2{
+        width: 85% !important;
+    }
+    #detail-img{
+        width: 690px;
+    }
+    #font-s span{
+        font-size: 30px!important;
+    }
+    .font{
+        font-size: 40px;
+    }
+    .detail{
+        width: 690px!important;
+    }
+    #form input,select{
+        width: 70%;
+        height: 40px;
+    }
+    #form input,select,label{
+        display: block;
+    }
+    .input{
+        width: 30%!important;
+        font-size: 30px;
+        height: 65px!important;
+    }
+    .div{
+        margin-top: 50px;
+    }
 }

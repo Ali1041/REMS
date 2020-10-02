@@ -1,0 +1,32 @@
+{% extends 'management/property_home.html' %}
+
+{% block admin %}
+    <h2 id="h1" class="text-center" style="color: white">{{ dyno }} property list</h2>
+    {% block check %}
+        {% include 'management/new.html' %}
+
+    {% endblock %}
+    {% if list %}
+    {% for i in list %}
+        <div class=" bg-white mt-3 row m-0" style="color: black;height:fit-content;">
+            <div class="col-lg-6 p-0 " ><img src="{{ i.get_photo_url }}" id="img-size" alt=""></div>
+            <div class="col-lg-6 p-4" id="actual-property">
+                <h3 class="mb-5 mt-3">Pkr:{{ i.price }}</h3>
+                <h6>{{ i.address }}</h6>
+                <h4>{{ i.city }}</h4>
+                <h5 style="display: inline-block">{{ i.type.upper }}-{{ i.purpose }}</h5>
+                <img style="height:35px" class="mb-3 ml-2 p-2" src="../../../media/css_styles/ruler-combined-solid.svg" alt="">
+                <h6 style="display: inline;width: fit-content;"> {{ i.size }} {{ i.unit }}</h6>                <h5 ><a style="color:dodgerblue;" href="{% url 'seller:detail' i.pk %}">{{ i.title }}</a></h5>
+                 <h6 class="m-0">{{ i.description|truncatewords:10 }}</h6>
+                <h6 class="m-0">{{ i.timestamp }}  </h6>
+
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+        <div class="text-center mt-5" style="color:white;">
+            <h2>Nothing {{ dyno }} yet!!</h2>
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -9,17 +9,17 @@ body{
     color: white!important;
 }
 #bg-home{
-    background: url(../../media/css_styles/c3.jpg) no-repeat center center/cover;
+    background: url(../../media/css_styles/maxresdefault.af70361110d7b615ce3b.jpg) no-repeat center center/cover;
     height: 120vh;
     z-index: 1;
     opacity: 0.9;
 }
-/*#trans{*/
-/*    background-color: black;*/
-/*    opacity: .4;*/
-/*    height: inherit;*/
-/*    z-index: 1;*/
-/*}*/
+#trans{
+    /*background-color: black;*/
+    background-color: rgba(0,0,0,0.5);
+    height: inherit;
+    z-index: 1;
+}
 #home-page{
     color: white;
     position: relative;
@@ -33,4 +33,78 @@ small,.text-muted{
 }
 #footer-icon{
     height: 50px;
+}
+#property-bg{
+    background: url(../../media/css_styles/joey-kyber-Pihl8kTtX-s-unsplash.jpg) no-repeat center/cover;
+}
+#img-size{
+    height: 300px;
+    width: 300px;
+}
+#id_size,#id_purpose,#id_by{
+    margin:0 10px 0 5px;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 4px;
+    outline: none;
+    /*border-color: dodgerblue;"*/
+}
+@media (max-width: 1000px) {
+    #bg-home{
+        background: url(../../media/css_styles/maxresdefault.af70361110d7b615ce3b.jpg) no-repeat center/cover!important;
+
+    }
+    li{
+        display: none;
+    }
+    h1 a{
+        font-size: 100px;
+    }
+    #home-page h1{
+        font-size: 80px!important;
+    }
+    #home-page p{
+        border-radius: 41px;
+        margin-top: 25px;
+    }
+    #home-page p a{
+        font-size: 60px!important;
+        padding: 15px!important;
+    }
+    small{
+        display: block;
+        font-size: 40px!important;
+    }
+    legend h2{
+        font-size: 80px!important;
+        padding: 20px;
+        margin-bottom: 5px;
+    }
+    #login-media,#signup-form{
+        width: 70%!important;
+        position: relative;
+        top: 10%;
+    }
+    /*#leg-head{*/
+    /*    font-size:80px ;*/
+    /*}*/
+    label{
+        font-size: 50px;
+        padding: 10px;
+    }
+    #id_username,#id_password,#id_email,#id_password1,#id_password2{
+        height: 90px;
+        border-radius: 8px;
+        width: 100%;
+        /*padding: 0;*/
+        font-size: 45px;
+        padding: 25px!important;
+    }
+    .btn-success{
+        border-radius: 8px;
+        margin-top: 25px;
+        font-size: 45px;
+        padding: 10px 32px;
+    }
+
 }

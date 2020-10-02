@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="bg-home">
-
+    <div id="trans">
     <div class="navbar">
         <h1><a style="color: white;text-decoration: none" href="{% url 'account:home' %}">REMS</a></h1>
     </div>
@@ -27,6 +27,7 @@
             <small style="display:block">Already have an account <a href="{% url 'account:login' %}">Login</a></small>
         </div>
     {% endblock %}
+    </div>
 </div>
 <div class="bg-dark p-4" style="color: white ">
     <div class="row m-0">

@@ -1,0 +1,29 @@
+{% block check %}
+    <div class="mt-4" style="color: white">
+      <form id="form" action="{% url 'management:admin_home' %}" method="GET" >
+    {{ search.form }}
+        <input type="submit" value="Search" class="btn btn-success ml-3 input" name="search">
+    </form>
+    {% for i in result %}
+        <div class=" bg-white mt-3 row m-0" style="color: black;height:fit-content;">
+            <div class="col-lg-6 p-0 " ><img src="{{ i.get_photo_url }}" id="img-size" alt=""></div>
+            <div class="col-lg-6 p-4" id="actual-property">
+                <h3 class="mb-5 mt-3">Pkr:{{ i.price }}</h3>
+                <h6 class="p-2">{{ i.address }}</h6>
+                <h4 class="p-2">{{ i.city }}</h4>
+                <h5 style="display: inline-block" class="p-2">{{ i.type.upper }}-{{ i.purpose }}</h5>
+                <img style="height:35px" class="mb-3 ml-2 p-2" src="../../../media/css_styles/ruler-combined-solid.svg" alt="">
+                <h6 style="display: inline;width: fit-content;"> {{ i.size }} {{ i.unit }}</h6>
+                <h5 ><a style="color:dodgerblue;" href="{% url 'seller:detail' i.pk %}">{{ i.title }}</a></h5>
+                 <h6 class="m-0 p-2">{{ i.description|truncatewords:10 }}</h6>
+                <h6 class="m-0 p-2">{{ i.timestamp }}  </h6>
+
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+    </div>
+
+{% endblock %}

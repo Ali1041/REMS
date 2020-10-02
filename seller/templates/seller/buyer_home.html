@@ -12,23 +12,60 @@
 </head>
 <body>
 <div id="buyer-home">
-<div id="transp">
+<div id="transparent">
    <div class="navbar ">
-        <h1 style="width: 70%;margin: auto">REMS</h1>
-        <p class="m-0 p-3 font-weight-bold"><a href="{% url 'seller:passwords' %}">Change Password</a></p>
-       <p class="m-0 p-3 mr-5 font-weight-bold"><a href="{% url 'account:logout' %}">Logout</a></p>
+        <h1 id="h1" style="width: 70%;margin: auto">REMS</h1>
+       {% if user.is_staff %}
+       <p class="m-0 p-3 font-weight-bold get-display"><a href="{% url 'management:admin_home' %}">Admin</a></p>
+       {% endif %}
+        <p class="m-0 p-3 font-weight-bold get-display"><a href="{% url 'seller:passwords' %}">Change Password</a></p>
+       <p class="m-0 p-3 mr-5 font-weight-bold get-display"><a href="{% url 'account:logout' %}">Logout</a></p>
     </div>
-   <div class="navbar p-2 row m-0"style="background-color: rgba(124,122,122,.525);" >
-       <h3  class="text-right col-sm-2">Buy          ></h3>
-        <h6 class="m-0 p-2 col-sm-1.5"><a href="{% url 'seller:house' %}">Houses</a></h6>
-        <h6 class="m-0 p-2 col-sm-1.5" ><a href="{% url 'seller:plot' %}">Plots</a></h6>
-        <h6 class="m-0 p-2 col-sm-1.5"><a href="{% url 'seller:commercial' %}">Commercial</a></h6>
-       <h6 class="m-0 p-2 col-sm-1.5"><a href="{% url 'seller:rent' %}">Rent</a></h6>
-       <h6 class="m-0 p-2 col-sm-6 text-right"><a href="{% url 'seller:seller_home' %}">Switch to Seller mode</a></h6>
+   <div class="navbar p-2 row m-0 get-display" style="background-color: rgba(124,122,122,.525);" >
+       <h3 id="sell-set" class="text-right col-sm-2">Buy          ></h3>
+        <h6 class="m-0 p-2 ml-4 col-sm-1.5"><a href="{% url 'seller:house' %}">Houses</a></h6>
+        <h6 class="m-0 p-2 ml-4 col-sm-1.5" ><a href="{% url 'seller:plot' %}">Plots</a></h6>
+        <h6 class="m-0 p-2 ml-4 col-sm-1.5"><a href="{% url 'seller:commercial' %}">Commercial</a></h6>
+       <h6 class="m-0 p-2 ml-5 col-sm-1.5"><a href="{% url 'seller:rent' %}">Rent</a></h6>
+       <h6 id="switch" class="m-0 p-2 col-md-6 text-right"><a href="{% url 'seller:seller_home' %}">
+           Switch to Seller mode</a></h6>
    </div>
 
+    <div style="width:fit-content;background-color: white;color:black;border-radius: 8px;position:sticky;top: 5%;z-index: 2"
+         class="ml-5">
+
+    <h3 id="btn-1" style="font-size: 30px" class="p-2 ">
+        Menu
+        <img src=../../../media/css_styles/list-ul-solid.svg alt="list" style="height: 40px">
+    </h3>
+    </div>
+    <div class="row m-0 fade-out" style="min-height:110vh" id="side-menu">
+        <div class="col-sm-10 bg-dark p-5" >
+        <div style="display: flex">
+            <h1 class="m-0 p-5" style="width: 90%">REMS</h1>
+            <h3 class="p-5"><span style="font-size: 30px" id="btn" class=" p-3 btn btn-danger">X</span></h3>
+        </div>
+
+        <h6  class="m-0 p-5 border-bottom"><a href="{% url 'seller:house' %}">Houses</a></h6>
+        <h6  class="m-0 p-5 border-bottom" ><a href="{% url 'seller:plot' %}">Plots</a></h6>
+        <h6  class="m-0 p-5 border-bottom"><a href="{% url 'seller:commercial' %}">Commercial</a></h6>
+        <h6  class="m-0 p-5 border-bottom"><a href="{% url 'seller:rent' %}">Rent</a></h6>
+        <h6 class="m-0 p-5 border-bottom">
+            <a href="{% url 'seller:seller_home' %}">Switch to Seller mode</a></h6>
+       {% if user.is_staff %}
+           <h6 class="m-0 p-5 border-bottom"><a href="{% url 'management:admin_home' %}">Admin</a></h6>
+       {% endif %}
+        <h6 class="m-0 p-5 border-bottom"><a href="{% url 'seller:passwords' %}">Change password</a></h6>
+       <h6 class="m-0 p-5 border-bottom"><a href="{% url 'account:logout' %}">Logout</a></h6>
+
+        </div>
+    </div>
+
+
+
+
 {% block buyer_body %}
-    <div class="container mt-5" style="width: 7px%;margin: auto">
+    <div class="container mt-5 text-center" >
         <h1>Welcome to my REMS</h1>
         <h1>Start browsing now to get your dream house!</h1>
     </div>
@@ -68,6 +105,8 @@
         <p class="text-center">Copyright &copy;</p>
     </div>
 </div>
+
+<script src="../../../static/js/index.js"></script>
 
 
 </body>

@@ -41,10 +41,17 @@ class SellerProperty(models.Model):
             return self.image_house.url
 
 
+    # def seller_title(self):
+    #     return self.title
+
 class Approve(models.Model):
     request_choices = [('Approve', 'Approve'), ('Reject', 'Reject'), ('Sold', 'Sold'), ('Pending', 'pending')]
     request_approval = models.CharField(choices=request_choices, max_length=10, default='pending')
-    approval = models.ForeignKey(SellerProperty, on_delete=models.CASCADE)
+    approval = models.ForeignKey(SellerProperty, on_delete=models.CASCADE,related_name='approval_seller')
 
     def __str__(self):
         return 'Approval detail fo this property title: ' + self.approval.title
+
+
+    def seller_title(self):
+        return self.approval.title

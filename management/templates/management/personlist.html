@@ -1,0 +1,22 @@
+{% extends 'management/property_home.html' %}
+{% block admin %}
+    <div style="color: white">
+        <h1 class="text-center">Total {{ dynamic }}: {{ list.count }}</h1>
+
+    </div>
+    <div class="row p-3" style="color: white">
+        <div class="col-sm-6 text-center">
+            <h2 class="border-bottom p-2 font">Username</h2>
+            {% for i in list %}
+                <p class="border-bottom p-2 font">{{ i.username }}</p>
+            {% endfor %}
+        </div>
+    <div class="col-sm-6 text-center ">
+        <h2 class="border-bottom p-2 font">Email</h2>
+        {% for i in list %}
+            <p class="border-bottom p-2 font">{{ i.email }}</p>
+        {% endfor %}
+    </div>
+    </div>
+
+{% endblock %}
