@@ -8,18 +8,14 @@ from seller.filter import *
 from django.shortcuts import Http404
 
 # Create your views here.
-# def request(request):
-#     search=SellerPropertyFilter()
-#     return render(request,'management/new.html',{'search':search})
 
+# filtering functional view for the admin page
 def PropertyHome(request):
     if not request.user.is_staff:
         raise Http404
     if request.method == 'GET':
         x = request.GET
-        print(x)
         if 'search' in x:
-            print('herer')
             result = SellerProperty.objects.all()
             search = SellerPropertyFilter(request.GET, queryset=result)
             result = search.qs
@@ -29,12 +25,7 @@ def PropertyHome(request):
             search = SellerPropertyFilter(request.GET, queryset=result)
             return render(request, 'management/property_home.html', {'search': search})
 
-    # def get_context_data(self, *args,**kwargs):
-    #     ctx=super(PropertyHome, self).get_context_data(*args,**kwargs)
-    #     ctx['search']=SellerPropertyFilter()
-    #     return ctx
-
-
+# property list for admin page
 class PropertyList(LoginRequiredMixin, generic.ListView):
     model = SellerProperty
     template_name = 'management/propertyList.html'
@@ -57,7 +48,7 @@ class PropertyList(LoginRequiredMixin, generic.ListView):
 
         return ctx
 
-
+# list of users present i.e buyers and sellers list
 class PersonList(LoginRequiredMixin, generic.ListView):
     model = User
     template_name = 'management/personlist.html'
@@ -73,18 +64,15 @@ class PersonList(LoginRequiredMixin, generic.ListView):
         current_url = resolve(self.request.path_info).url_name
         ctx = super(PersonList, self).get_context_data(*args, **kwargs)
         ctx['dynamic'] = current_url
-        # ctx['search']=SellerPropertyFilter()
         return ctx
 
-
+# list of property based on its type
 class TypeProperty(LoginRequiredMixin, generic.ListView):
     model = SellerProperty
-    # template_name = 'management/type.html'
     template_name = 'management/propertyList.html'
     context_object_name = 'list'
 
     def get_queryset(self):
-        print(self)
         if not self.request.user.is_staff:
             raise Http404
         current_url = resolve(self.request.path_info).url_name
@@ -93,11 +81,10 @@ class TypeProperty(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *args, **kwargs):
         ctx = super(TypeProperty, self).get_context_data(*args, **kwargs)
         ctx['dyno'] = resolve(self.request.path_info).url_name
-        # ctx['search']=SellerPropertyFilter()
 
         return ctx
 
-
+# detail page for approval of property
 class AdminApprovalProperty(LoginRequiredMixin, generic.RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return reverse_lazy('management:All')
@@ -108,17 +95,15 @@ class AdminApprovalProperty(LoginRequiredMixin, generic.RedirectView):
         current_url = resolve(self.request.path_info).url_name
         x = Approve.objects.filter(approval_id=y)
 
-        print(x[0].request_approval)
         if x:
-            print(current_url)
             x[0].request_approval = current_url.capitalize()
             x[0].save()
-            print(x[0].request_approval)
         else:
             Approve.objects.create(request_approval=current_url.capitalize(), approval_id=y)
-        # print(x.request_approval)
         return super(AdminApprovalProperty, self).get(request, *args, **kwargs)
 
+
+# deleting the property from the admin panel
 class DeleteView(LoginRequiredMixin,generic.DeleteView):
     model = SellerProperty
     template_name = 'management/deleteview.html'

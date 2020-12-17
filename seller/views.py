@@ -24,10 +24,8 @@ class PasswordsChange(LoginRequiredMixin, PasswordChangeView):
 # this is for the contact form
 def index(request):
     if request.method == 'POST':
-        print('here')
         message = request.POST['message']
         email = request.POST['email']
-        print(email)
         send_mail('Contact form',
                   message,
                   email,
