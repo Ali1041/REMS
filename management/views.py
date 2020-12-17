@@ -84,6 +84,7 @@ class TypeProperty(LoginRequiredMixin, generic.ListView):
     context_object_name = 'list'
 
     def get_queryset(self):
+        print(self)
         if not self.request.user.is_staff:
             raise Http404
         current_url = resolve(self.request.path_info).url_name
@@ -102,7 +103,7 @@ class AdminApprovalProperty(LoginRequiredMixin, generic.RedirectView):
         return reverse_lazy('management:All')
 
     def get(self, request, *args, **kwargs):
-        print(self.kwargs.get('pk'))
+        print(self)
         y = self.kwargs.get('pk')
         current_url = resolve(self.request.path_info).url_name
         x = Approve.objects.filter(approval_id=y)

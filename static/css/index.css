@@ -106,5 +106,14 @@ small,.text-muted{
         font-size: 45px;
         padding: 10px 32px;
     }
+    .font3{
+        font-size: 33px!important;
+    }
+    .font1{
+        font-size: 45px!important;
+    }
+    .font2{
+        font-size: 38px!important;
+    }
 
 }

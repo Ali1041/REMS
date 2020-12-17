@@ -10,7 +10,7 @@
     {% for i in list %}
         <div class=" bg-white mt-3 row m-0" style="color: black;height:fit-content;">
             <div class="col-lg-6 p-0 " ><img src="{{ i.get_photo_url }}" id="img-size" alt=""></div>
-            <div class="col-lg-6 p-4" id="actual-property">
+            <div class="col-lg-6 " id="actual-property">
                 <h3 class="mb-5 mt-3">Pkr:{{ i.price }}</h3>
                 <h6>{{ i.address }}</h6>
                 <h4>{{ i.city }}</h4>

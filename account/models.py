@@ -7,7 +7,7 @@ from django.utils.text import slugify
 
 # Create your models here.
 
-
+# model manager for the custom user model
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, username, password=None):
         if not email:
@@ -36,7 +36,7 @@ class MyAccountManager(BaseUserManager):
         myuser.save(using=self._db)
         return myuser
 
-
+# making a custom user model
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=128, unique=True)
     username = models.CharField(max_length=100, unique=True)

@@ -19,3 +19,7 @@
         y.classList.remove('fade-out');
         y.classList.add('fade-in')
     })
+    l=document.getElementsByClassName('alert');
+    setTimeout(()=>{
+
+    },3000)

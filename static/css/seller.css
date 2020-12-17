@@ -158,4 +158,13 @@ li,.text-muted{
     .div{
         margin-top: 50px;
     }
+    .font1{
+        font-size: 45px!important;
+    }
+    .font2{
+        font-size: 38px!important;
+    }
+    .font3{
+        font-size: 33px!important;
+    }
 }

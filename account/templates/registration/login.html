@@ -4,6 +4,11 @@
     <div class="container mt-5 p-4" id="login-media" style="width: 40%;color: white">
         <form action="" method="POST">
             <legend class="text-center"><h2>Login</h2></legend>
+            {% if error %}
+
+                <p style="color: red">Invalid email.Enter the correct format</p>
+            {% endif %}
+
     {% csrf_token %}
     {% bootstrap_form form %}
 {#            <a href="{% url 'account:signup' %}">SignUp here</a>#}
@@ -11,5 +16,4 @@
             <small><a href="{% url 'account:reset_password' %}">Forgot password?</a></small>
     </form>
     </div>
-
 {% endblock %}

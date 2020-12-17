@@ -1,7 +1,7 @@
 from .models import *
 from django import forms
 
-
+# property creation form
 class SellerForm(forms.ModelForm):
     class Meta:
         model = SellerProperty
